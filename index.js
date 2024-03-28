@@ -106,12 +106,11 @@ module.exports = (key, secret, userAgent) => {
         // },
         searchByTerm: async (q, max = 60) => {
             let queries = {
-                q: q,
-                max: max,
+                q: q
             };
-            // if (val !== '') queries['val'] = val;
-            // if (clean) queries['clean'] = '';
-            // if (fullText) queries['fullText'] = '';
+            if (max) {
+                queries['max'] = max;
+            }
             return custom(PATH_SEARCH_BY_TERM, queries);
         },
         searchByTitle: async (q, val = '', clean = false, fullText = false) => {
