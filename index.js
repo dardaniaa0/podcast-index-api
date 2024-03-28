@@ -107,7 +107,7 @@ module.exports = (key, secret, userAgent) => {
         searchByTerm: async (q, val = '', clean = false, fullText = false, max = 10) => {
             let queries = {
                 q: q,
-                max: max
+                max: max,
             };
             if (val !== '') queries['val'] = val;
             if (clean) queries['clean'] = '';
