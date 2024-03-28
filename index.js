@@ -95,14 +95,24 @@ module.exports = (key, secret, userAgent) => {
         api,
         custom,
 
-        searchByTerm: async (q, val = '', clean = false, fullText = false) => {
+        // searchByTerm: async (q, val = '', clean = false, fullText = false) => {
+        //     let queries = {
+        //         q: q,
+        //     }
+        //     if (val !== '') queries['val'] = val
+        //     if (clean) queries['clean'] = ''
+        //     if (fullText) queries['fullText'] = ''
+        //     return custom(PATH_SEARCH_BY_TERM, queries)
+        // },
+        searchByTerm: async (q, val = '', clean = false, fullText = false, max = 10) => {
             let queries = {
                 q: q,
-            }
-            if (val !== '') queries['val'] = val
-            if (clean) queries['clean'] = ''
-            if (fullText) queries['fullText'] = ''
-            return custom(PATH_SEARCH_BY_TERM, queries)
+                max: max
+            };
+            if (val !== '') queries['val'] = val;
+            if (clean) queries['clean'] = '';
+            if (fullText) queries['fullText'] = '';
+            return custom(PATH_SEARCH_BY_TERM, queries);
         },
         searchByTitle: async (q, val = '', clean = false, fullText = false) => {
             let queries = {
